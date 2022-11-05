@@ -12,7 +12,10 @@ namespace simple_paint
         {
             get { return Color.Red; }
         }
-        int SelectedSize;
+        int SelectedSize
+        {
+            get { return trackBar1.Value; }
+        }
         
 
         Brush _selectedBrush ;
@@ -22,11 +25,12 @@ namespace simple_paint
         }
         public Form1()
         {
-            if(_selectedBrush == null) //программа жаловалась на Null в кисти и я сделал так чтобы она перестала это
+            InitializeComponent();
+            if (_selectedBrush == null) //программа жаловалась на Null в кисти и я сделал так чтобы она перестала это
             {
                 _selectedBrush = new QuadBrush(SelectedColor, SelectedSize);
             }
-            InitializeComponent();
+            
             CreateBlank(pictureBox1.Width, pictureBox1.Height);
         }
 
@@ -59,9 +63,12 @@ namespace simple_paint
                 //brush тип не выбрана кисть
                 return;
             }
-            _selectedBrush.Draw(image: (Bitmap)pictureBox1.Image, x: _x, y: _y);
+            _x = e.X > 0 ? e.X : 0;
+            _y = e.Y > 0 ? e.Y : 0;
+            _selectedBrush.Draw((Bitmap)pictureBox1.Image, x: _x, y: _y);
             pictureBox1.Refresh();
             _mouseClicked = true;
+
 
         }
 
@@ -76,7 +83,7 @@ namespace simple_paint
             _y = e.Y > 0 ? e.Y :0;
             if (_mouseClicked)
             {
-                _selectedBrush.Draw(image: (Bitmap)pictureBox1.Image, _x, _y);
+                _selectedBrush.Draw( (Bitmap)pictureBox1.Image, _x, _y);
                 pictureBox1.Refresh();
             }
         }
@@ -93,7 +100,12 @@ namespace simple_paint
 
         private void trackBar1_Scroll(object sender, EventArgs e)
         {
-            SelectedSize = trackBar1.Value;
+           
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

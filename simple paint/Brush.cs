@@ -17,6 +17,7 @@ namespace simple_paint
             Size = size;
         }
         public abstract void Draw (Bitmap image, int x, int y);
+        
     }
     class QuadBrush : Brush
     {
@@ -32,5 +33,7 @@ namespace simple_paint
             }
 
         }
+
+        
     }
 }
