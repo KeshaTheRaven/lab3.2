@@ -107,5 +107,10 @@ namespace simple_paint
         {
 
         }
+
+        private void krug_Click(object sender, EventArgs e)
+        {
+            _selectedBrush = new Circle(SelectedColor, SelectedSize);
+        }
     }
 }

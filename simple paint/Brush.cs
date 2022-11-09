@@ -36,4 +36,40 @@ namespace simple_paint
 
         
     }
+    internal class Circle : Brush
+    {
+        public Circle(Color BrushColor, int size) : base(BrushColor, size)
+        {
+
+        }
+
+        public override void Draw(Bitmap image, int x, int y)
+        {
+            int R = Size;
+
+            for (int y0 = y - Size; y0 < y + Size; ++y0)
+            {
+                for (int x0 = x - Size; x0 < x + Size; ++x0)
+                {
+
+                    if (((x - x0) * (x - x0)) + ((y - y0) * (y - y0)) < (Size * Size))
+                    {
+                        try
+                        {
+                            image.SetPixel(x0, y0, brushColor);
+                        }
+                        catch (Exception)
+                        {
+
+
+                        }
+                    }
+
+
+
+                }
+
+            }
+        }
+    }
 }
