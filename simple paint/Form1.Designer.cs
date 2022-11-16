@@ -30,36 +30,35 @@
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.создатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.правкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.видToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsPanel = new System.Windows.Forms.Panel();
             this.groupBrush = new System.Windows.Forms.GroupBox();
-            this.Otrher = new System.Windows.Forms.Button();
+            this.Other = new System.Windows.Forms.Button();
             this.krug = new System.Windows.Forms.Button();
             this.pryamo = new System.Windows.Forms.Button();
             this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.kvadr = new System.Windows.Forms.Button();
             this.drawPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.toolsPanel.SuspendLayout();
             this.groupBrush.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.drawPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.файлToolStripMenuItem,
-            this.правкаToolStripMenuItem,
-            this.видToolStripMenuItem,
             this.справкаToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
@@ -70,6 +69,7 @@
             // файлToolStripMenuItem
             // 
             this.файлToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.создатьToolStripMenuItem,
             this.сохранитьToolStripMenuItem,
             this.открытьToolStripMenuItem,
             this.выходToolStripMenuItem});
@@ -77,6 +77,13 @@
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(48, 20);
             this.файлToolStripMenuItem.Text = "Файл";
             this.файлToolStripMenuItem.Click += new System.EventHandler(this.файлToolStripMenuItem_Click);
+            // 
+            // создатьToolStripMenuItem
+            // 
+            this.создатьToolStripMenuItem.Name = "создатьToolStripMenuItem";
+            this.создатьToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.создатьToolStripMenuItem.Text = "Создать";
+            this.создатьToolStripMenuItem.Click += new System.EventHandler(this.создатьToolStripMenuItem_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
@@ -96,18 +103,6 @@
             this.выходToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             // 
-            // правкаToolStripMenuItem
-            // 
-            this.правкаToolStripMenuItem.Name = "правкаToolStripMenuItem";
-            this.правкаToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
-            this.правкаToolStripMenuItem.Text = "Правка";
-            // 
-            // видToolStripMenuItem
-            // 
-            this.видToolStripMenuItem.Name = "видToolStripMenuItem";
-            this.видToolStripMenuItem.Size = new System.Drawing.Size(39, 20);
-            this.видToolStripMenuItem.Text = "Вид";
-            // 
             // справкаToolStripMenuItem
             // 
             this.справкаToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -121,9 +116,11 @@
             this.оПрограммеToolStripMenuItem.Name = "оПрограммеToolStripMenuItem";
             this.оПрограммеToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.оПрограммеToolStripMenuItem.Text = "О программе";
+            this.оПрограммеToolStripMenuItem.Click += new System.EventHandler(this.оПрограммеToolStripMenuItem_Click);
             // 
             // toolsPanel
             // 
+            this.toolsPanel.Controls.Add(this.pictureBox2);
             this.toolsPanel.Controls.Add(this.groupBrush);
             this.toolsPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.toolsPanel.Location = new System.Drawing.Point(0, 24);
@@ -133,7 +130,7 @@
             // 
             // groupBrush
             // 
-            this.groupBrush.Controls.Add(this.Otrher);
+            this.groupBrush.Controls.Add(this.Other);
             this.groupBrush.Controls.Add(this.krug);
             this.groupBrush.Controls.Add(this.pryamo);
             this.groupBrush.Controls.Add(this.trackBar1);
@@ -146,15 +143,16 @@
             this.groupBrush.TabStop = false;
             this.groupBrush.Text = "Выбор кисти";
             // 
-            // Otrher
+            // Other
             // 
-            this.Otrher.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Otrher.Location = new System.Drawing.Point(74, 107);
-            this.Otrher.Name = "Otrher";
-            this.Otrher.Size = new System.Drawing.Size(65, 31);
-            this.Otrher.TabIndex = 1;
-            this.Otrher.Text = "Квадрат";
-            this.Otrher.UseVisualStyleBackColor = true;
+            this.Other.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Other.Location = new System.Drawing.Point(74, 107);
+            this.Other.Name = "Other";
+            this.Other.Size = new System.Drawing.Size(65, 31);
+            this.Other.TabIndex = 1;
+            this.Other.Text = "Спрей";
+            this.Other.UseVisualStyleBackColor = true;
+            this.Other.Click += new System.EventHandler(this.Other_Click);
             // 
             // krug
             // 
@@ -174,8 +172,9 @@
             this.pryamo.Name = "pryamo";
             this.pryamo.Size = new System.Drawing.Size(65, 31);
             this.pryamo.TabIndex = 1;
-            this.pryamo.Text = "Прямоугольник";
+            this.pryamo.Text = "Ластик";
             this.pryamo.UseVisualStyleBackColor = true;
+            this.pryamo.Click += new System.EventHandler(this.pryamo_Click);
             // 
             // trackBar1
             // 
@@ -203,6 +202,7 @@
             // 
             // drawPanel
             // 
+            this.drawPanel.AutoScroll = true;
             this.drawPanel.Controls.Add(this.pictureBox1);
             this.drawPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.drawPanel.Location = new System.Drawing.Point(174, 24);
@@ -214,7 +214,6 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(626, 426);
@@ -224,6 +223,16 @@
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_Mouseup);
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::simple_paint.Properties.Resources.rgbSpectrum;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 176);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(174, 250);
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
             // 
             // Form1
             // 
@@ -243,6 +252,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.drawPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -255,8 +265,6 @@
         private ToolStripMenuItem сохранитьToolStripMenuItem;
         private ToolStripMenuItem открытьToolStripMenuItem;
         private ToolStripMenuItem выходToolStripMenuItem;
-        private ToolStripMenuItem правкаToolStripMenuItem;
-        private ToolStripMenuItem видToolStripMenuItem;
         private ToolStripMenuItem справкаToolStripMenuItem;
         private ToolStripMenuItem оПрограммеToolStripMenuItem;
         private Panel toolsPanel;
@@ -266,7 +274,9 @@
         private Button kvadr;
         private Button krug;
         private Button pryamo;
-        private Button Otrher;
+        private Button Other;
         private PictureBox pictureBox1;
+        private ToolStripMenuItem создатьToolStripMenuItem;
+        private PictureBox pictureBox2;
     }
 }

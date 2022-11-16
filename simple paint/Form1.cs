@@ -5,27 +5,34 @@ namespace simple_paint
     
     public partial class Form1 : Form
     {
+        int ImW;
+        int ImH;
         int _x;
         int _y;
         bool _mouseClicked = false;
+        Color cColor;
         Color SelectedColor
         {
-            get { return Color.Red; }
+            get { return cColor; }
         }
+
         int SelectedSize
         {
             get { return trackBar1.Value; }
         }
         
-
         Brush _selectedBrush ;
+
         Color DefaultColor
         {
             get { return Color.White; }
         }
+
         public Form1()
         {
             InitializeComponent();
+            CreateBlank(pictureBox1.Width, pictureBox1.Height);
+            Brush.GetSize(pictureBox1.Width, pictureBox1.Height);
             if (_selectedBrush == null) //программа жаловалась на Null в кисти и я сделал так чтобы она перестала это
             {
                 _selectedBrush = new QuadBrush(SelectedColor, SelectedSize);
@@ -36,19 +43,27 @@ namespace simple_paint
 
         void CreateBlank(int width, int height)
         {
-            var oldImage = pictureBox1.Image;
-            var bmp = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-
-            for (int i = 0; i < width; i++)
+            try
             {
-                for (int j = 0; j < height; j++)
+                var oldImage = pictureBox1.Image;
+                var bmp = new Bitmap(width, height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+
+                for (int i = 0; i < width; i++)
                 {
-                    bmp.SetPixel(i, j, DefaultColor);
+                    for (int j = 0; j < height; j++)
+                    {
+                        bmp.SetPixel(i, j, DefaultColor);
+                    }
                 }
+
+                pictureBox1.Image = bmp;
+                if (oldImage != null) { oldImage.Dispose(); }
             }
 
-            pictureBox1.Image = bmp;
-            if (oldImage != null) { oldImage.Dispose(); }
+            catch (Exception)
+            {
+
+            }
 
         }
         private void kvadr_Click(object sender, EventArgs e)
@@ -111,6 +126,33 @@ namespace simple_paint
         private void krug_Click(object sender, EventArgs e)
         {
             _selectedBrush = new Circle(SelectedColor, SelectedSize);
+        }
+
+        private void создатьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form2 form = new Form2();
+            form.ShowDialog();
+            if (form.Canceled == false)
+            {
+                CreateBlank(form.W, form.H);
+                
+            }
+
+        }
+
+        private void pryamo_Click(object sender, EventArgs e)
+        {
+            _selectedBrush = new Eraser(SelectedColor, SelectedSize);
+        }
+
+        private void Other_Click(object sender, EventArgs e)
+        {
+            _selectedBrush = new Spray(SelectedColor, SelectedSize);
+        }
+
+        private void оПрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
