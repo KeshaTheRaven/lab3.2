@@ -37,6 +37,15 @@
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsPanel = new System.Windows.Forms.Panel();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.blueBox = new System.Windows.Forms.TextBox();
+            this.greenBox = new System.Windows.Forms.TextBox();
+            this.redBox = new System.Windows.Forms.TextBox();
+            this.sC = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.groupBrush = new System.Windows.Forms.GroupBox();
             this.Other = new System.Windows.Forms.Button();
             this.krug = new System.Windows.Forms.Button();
@@ -45,14 +54,13 @@
             this.kvadr = new System.Windows.Forms.Button();
             this.drawPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
             this.toolsPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBrush.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.drawPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -120,13 +128,103 @@
             // 
             // toolsPanel
             // 
+            this.toolsPanel.Controls.Add(this.label5);
+            this.toolsPanel.Controls.Add(this.label4);
+            this.toolsPanel.Controls.Add(this.label3);
+            this.toolsPanel.Controls.Add(this.label1);
+            this.toolsPanel.Controls.Add(this.blueBox);
+            this.toolsPanel.Controls.Add(this.greenBox);
+            this.toolsPanel.Controls.Add(this.redBox);
+            this.toolsPanel.Controls.Add(this.sC);
             this.toolsPanel.Controls.Add(this.pictureBox2);
             this.toolsPanel.Controls.Add(this.groupBrush);
             this.toolsPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.toolsPanel.Location = new System.Drawing.Point(0, 24);
             this.toolsPanel.Name = "toolsPanel";
-            this.toolsPanel.Size = new System.Drawing.Size(174, 426);
+            this.toolsPanel.Size = new System.Drawing.Size(174, 583);
             this.toolsPanel.TabIndex = 1;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(3, 471);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(78, 15);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Currect Color";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 440);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(30, 15);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Blue";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 411);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(38, 15);
+            this.label3.TabIndex = 6;
+            this.label3.Text = "Green";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 372);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(27, 15);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Red";
+            // 
+            // blueBox
+            // 
+            this.blueBox.Location = new System.Drawing.Point(68, 432);
+            this.blueBox.Name = "blueBox";
+            this.blueBox.ReadOnly = true;
+            this.blueBox.Size = new System.Drawing.Size(100, 23);
+            this.blueBox.TabIndex = 5;
+            this.blueBox.TextChanged += new System.EventHandler(this.blueBox_TextChanged);
+            // 
+            // greenBox
+            // 
+            this.greenBox.Location = new System.Drawing.Point(68, 403);
+            this.greenBox.Name = "greenBox";
+            this.greenBox.ReadOnly = true;
+            this.greenBox.Size = new System.Drawing.Size(100, 23);
+            this.greenBox.TabIndex = 4;
+            this.greenBox.TextChanged += new System.EventHandler(this.greenBox_TextChanged);
+            // 
+            // redBox
+            // 
+            this.redBox.Location = new System.Drawing.Point(68, 369);
+            this.redBox.Name = "redBox";
+            this.redBox.ReadOnly = true;
+            this.redBox.Size = new System.Drawing.Size(100, 23);
+            this.redBox.TabIndex = 0;
+            this.redBox.TextChanged += new System.EventHandler(this.redBox_TextChanged);
+            // 
+            // sC
+            // 
+            this.sC.Location = new System.Drawing.Point(84, 461);
+            this.sC.Name = "sC";
+            this.sC.Size = new System.Drawing.Size(84, 25);
+            this.sC.TabIndex = 2;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::simple_paint.Properties.Resources.rgbSpectrum;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 176);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(174, 407);
+            this.pictureBox2.TabIndex = 3;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseDown);
+            this.pictureBox2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseMove);
             // 
             // groupBrush
             // 
@@ -141,7 +239,6 @@
             this.groupBrush.Size = new System.Drawing.Size(174, 176);
             this.groupBrush.TabIndex = 0;
             this.groupBrush.TabStop = false;
-            this.groupBrush.Text = "Выбор кисти";
             // 
             // Other
             // 
@@ -207,7 +304,7 @@
             this.drawPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.drawPanel.Location = new System.Drawing.Point(174, 24);
             this.drawPanel.Name = "drawPanel";
-            this.drawPanel.Size = new System.Drawing.Size(626, 426);
+            this.drawPanel.Size = new System.Drawing.Size(626, 583);
             this.drawPanel.TabIndex = 2;
             this.drawPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.drawPanel_Paint);
             this.drawPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
@@ -224,21 +321,11 @@
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_Mouseup);
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::simple_paint.Properties.Resources.rgbSpectrum;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 176);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(174, 250);
-            this.pictureBox2.TabIndex = 3;
-            this.pictureBox2.TabStop = false;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 607);
             this.Controls.Add(this.drawPanel);
             this.Controls.Add(this.toolsPanel);
             this.Controls.Add(this.menuStrip1);
@@ -248,11 +335,12 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolsPanel.ResumeLayout(false);
+            this.toolsPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBrush.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.drawPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,5 +366,13 @@
         private PictureBox pictureBox1;
         private ToolStripMenuItem создатьToolStripMenuItem;
         private PictureBox pictureBox2;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label1;
+        private TextBox blueBox;
+        private TextBox greenBox;
+        private TextBox redBox;
+        private Panel sC;
     }
 }

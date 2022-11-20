@@ -14,12 +14,12 @@ namespace simple_paint
             W = w;
             H = h;
         }
-        public Color brushColor { get; set; }
+        public Color cColor { get; set; }
         public int Size { get; set; }
-        public Brush(Color BrushColor,
+        public Brush(Color cColor,
                      int size)
         {
-            brushColor = BrushColor;
+            this.cColor = cColor;
             Size = size;
         }
         public abstract void Draw (Bitmap image, int x, int y);
@@ -27,14 +27,14 @@ namespace simple_paint
     }
     class QuadBrush : Brush
     {
-        public QuadBrush (Color brushColor, int size) : base(brushColor, size) { }
+        public QuadBrush (Color cColor, int size) : base(cColor, size) { }
         public override void Draw(Bitmap image, int x, int y)
         {
             for (int y0 = y-Size; y0 < y+Size; ++y0)
             {
                 for (int x0 = x-Size; x0 < x+Size; ++x0)
                 {
-                    image.SetPixel(x0, y0, brushColor);
+                    image.SetPixel(x0, y0, cColor);
                 }
             }
 
@@ -44,7 +44,7 @@ namespace simple_paint
     }
     internal class Circle : Brush
     {
-        public Circle(Color BrushColor, int size) : base(BrushColor, size)
+        public Circle(Color cColor, int size) : base(cColor, size)
         {
 
         }
@@ -62,7 +62,7 @@ namespace simple_paint
                     {
                         try
                         {
-                            image.SetPixel(x0, y0, brushColor);
+                            image.SetPixel(x0, y0, cColor);
                         }
                         catch (Exception)
                         {
@@ -80,7 +80,7 @@ namespace simple_paint
     }
     internal class Eraser : Brush
     {
-        public Eraser(Color brushColor, int size) : base(brushColor, size) { }
+        public Eraser(Color cColor, int size) : base(cColor, size) { }
         public override void Draw(Bitmap image, int x, int y)
         {
             for (int y0 = y - Size; y0 < y + Size; ++y0)
@@ -95,7 +95,7 @@ namespace simple_paint
     internal class Spray : Brush
     {
 
-        public Spray(Color BrushColor, int size) : base(BrushColor, size)
+        public Spray(Color cColor, int size) : base(cColor, size)
         {
 
         }
@@ -114,7 +114,7 @@ namespace simple_paint
                     {
                         if (x0 > 0 & y0 > 0 & x0 < W & y0 < H)
                         {
-                            image.SetPixel(x0, y0, brushColor);
+                            image.SetPixel(x0, y0, cColor);
                         }
 
 

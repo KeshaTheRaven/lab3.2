@@ -10,10 +10,10 @@ namespace simple_paint
         int _x;
         int _y;
         bool _mouseClicked = false;
-        Color cColor;
+
         Color SelectedColor
         {
-            get { return cColor; }
+            get { return sC.BackColor; } // возвращает знаечение панели со цветом
         }
 
         int SelectedSize
@@ -66,6 +66,23 @@ namespace simple_paint
             }
 
         }
+        private void pictureBox2_MouseMove(object sender, MouseEventArgs e)
+        {
+            Bitmap pixelData = (Bitmap)pictureBox2.Image;                   // выбирает пиксель из палитры градиента
+            Color SelectedColor = pixelData.GetPixel(e.X, e.Y);
+
+        }
+
+        private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
+        {
+            Bitmap pixelData = (Bitmap)pictureBox2.Image;               // устанавливает цвет панели
+            Color SelectedColor = pixelData.GetPixel(e.X, e.Y);
+            redBox.Text = SelectedColor.R.ToString();
+            greenBox.Text = SelectedColor.G.ToString();
+            blueBox.Text = SelectedColor.B.ToString();
+            sC.BackColor = SelectedColor;
+
+        }
         private void kvadr_Click(object sender, EventArgs e)
         {
             _selectedBrush = new QuadBrush(SelectedColor, SelectedSize);
@@ -86,6 +103,8 @@ namespace simple_paint
 
 
         }
+
+
 
         private void pictureBox1_Mouseup(object sender, MouseEventArgs e)
         {
@@ -153,6 +172,23 @@ namespace simple_paint
         private void оѕрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+
+
+        private void redBox_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void greenBox_TextChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void blueBox_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
