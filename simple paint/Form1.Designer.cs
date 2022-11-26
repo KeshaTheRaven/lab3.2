@@ -89,26 +89,28 @@
             // создатьToolStripMenuItem
             // 
             this.создатьToolStripMenuItem.Name = "создатьToolStripMenuItem";
-            this.создатьToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.создатьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.создатьToolStripMenuItem.Text = "Создать";
             this.создатьToolStripMenuItem.Click += new System.EventHandler(this.создатьToolStripMenuItem_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
+            this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // открытьToolStripMenuItem
             // 
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.открытьToolStripMenuItem.Text = "Открыть";
+            this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             // 
             // справкаToolStripMenuItem
@@ -147,7 +149,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(3, 471);
+            this.label5.Location = new System.Drawing.Point(3, 418);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(78, 15);
             this.label5.TabIndex = 7;
@@ -156,7 +158,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 440);
+            this.label4.Location = new System.Drawing.Point(12, 387);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(30, 15);
             this.label4.TabIndex = 7;
@@ -165,7 +167,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 411);
+            this.label3.Location = new System.Drawing.Point(12, 358);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(38, 15);
             this.label3.TabIndex = 6;
@@ -174,7 +176,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 372);
+            this.label1.Location = new System.Drawing.Point(12, 319);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(27, 15);
             this.label1.TabIndex = 2;
@@ -182,7 +184,7 @@
             // 
             // blueBox
             // 
-            this.blueBox.Location = new System.Drawing.Point(68, 432);
+            this.blueBox.Location = new System.Drawing.Point(68, 379);
             this.blueBox.Name = "blueBox";
             this.blueBox.ReadOnly = true;
             this.blueBox.Size = new System.Drawing.Size(100, 23);
@@ -191,7 +193,7 @@
             // 
             // greenBox
             // 
-            this.greenBox.Location = new System.Drawing.Point(68, 403);
+            this.greenBox.Location = new System.Drawing.Point(68, 350);
             this.greenBox.Name = "greenBox";
             this.greenBox.ReadOnly = true;
             this.greenBox.Size = new System.Drawing.Size(100, 23);
@@ -200,7 +202,7 @@
             // 
             // redBox
             // 
-            this.redBox.Location = new System.Drawing.Point(68, 369);
+            this.redBox.Location = new System.Drawing.Point(68, 316);
             this.redBox.Name = "redBox";
             this.redBox.ReadOnly = true;
             this.redBox.Size = new System.Drawing.Size(100, 23);
@@ -209,7 +211,7 @@
             // 
             // sC
             // 
-            this.sC.Location = new System.Drawing.Point(84, 461);
+            this.sC.Location = new System.Drawing.Point(84, 408);
             this.sC.Name = "sC";
             this.sC.Size = new System.Drawing.Size(84, 25);
             this.sC.TabIndex = 2;
@@ -218,9 +220,9 @@
             // 
             this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pictureBox2.Image = global::simple_paint.Properties.Resources.rgbSpectrum;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 176);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 147);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(174, 407);
+            this.pictureBox2.Size = new System.Drawing.Size(174, 436);
             this.pictureBox2.TabIndex = 3;
             this.pictureBox2.TabStop = false;
             this.pictureBox2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox2_MouseDown);
@@ -236,7 +238,7 @@
             this.groupBrush.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBrush.Location = new System.Drawing.Point(0, 0);
             this.groupBrush.Name = "groupBrush";
-            this.groupBrush.Size = new System.Drawing.Size(174, 176);
+            this.groupBrush.Size = new System.Drawing.Size(174, 147);
             this.groupBrush.TabIndex = 0;
             this.groupBrush.TabStop = false;
             // 
@@ -279,11 +281,11 @@
             this.trackBar1.Dock = System.Windows.Forms.DockStyle.Top;
             this.trackBar1.Location = new System.Drawing.Point(3, 19);
             this.trackBar1.Maximum = 100;
-            this.trackBar1.Minimum = 10;
+            this.trackBar1.Minimum = 1;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(168, 45);
             this.trackBar1.TabIndex = 0;
-            this.trackBar1.Value = 10;
+            this.trackBar1.Value = 1;
             this.trackBar1.Scroll += new System.EventHandler(this.trackBar1_Scroll);
             // 
             // kvadr
@@ -311,9 +313,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(0, -12);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(626, 426);
+            this.pictureBox1.Size = new System.Drawing.Size(626, 583);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);

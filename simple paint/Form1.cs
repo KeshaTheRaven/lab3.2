@@ -1,3 +1,4 @@
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 
 namespace simple_paint
@@ -5,8 +6,7 @@ namespace simple_paint
     
     public partial class Form1 : Form
     {
-        int ImW;
-        int ImH;
+        
         int _x;
         int _y;
         bool _mouseClicked = false;
@@ -69,7 +69,10 @@ namespace simple_paint
         private void pictureBox2_MouseMove(object sender, MouseEventArgs e)
         {
             Bitmap pixelData = (Bitmap)pictureBox2.Image;                   // выбирает пиксель из палитры градиента
-            Color SelectedColor = pixelData.GetPixel(e.X, e.Y);
+            if (_mouseClicked)
+            {
+                Color SelectedColor = pixelData.GetPixel(e.X, e.Y);
+            }
 
         }
 
@@ -171,6 +174,7 @@ namespace simple_paint
 
         private void оѕрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
+          
 
         }
 
@@ -189,6 +193,28 @@ namespace simple_paint
         private void blueBox_TextChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void сохранитьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog(); //диалоговое окно новое
+            if (dialog.ShowDialog() == DialogResult.OK)   //цикл
+            {
+                int width = Convert.ToInt32(pictureBox1.Width);
+                int height = Convert.ToInt32(pictureBox1.Height);
+                using (Bitmap bmp = new Bitmap(width, height))
+                {
+                    pictureBox1.DrawToBitmap(bmp, new Rectangle(0, 0, width, height));
+                    bmp.Save(dialog.FileName, ImageFormat.Jpeg);    //save
+                }
+            }
+        }
+
+        private void открытьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var ofd = new OpenFileDialog();
+            if (ofd.ShowDialog() == DialogResult.OK)
+                pictureBox1.Image = Image.FromFile(ofd.FileName);
         }
     }
 }
