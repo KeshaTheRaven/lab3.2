@@ -128,4 +128,30 @@ namespace simple_paint
             }
         }
     }
+    internal class Octoflower : Brush
+    {
+        public Octoflower(Color cColor, int size) : base(cColor, size)
+        {
+
+        }
+
+        public override void Draw(Bitmap image, int x, int y)
+        {
+            //r = 2*sin( 5*p)
+                      
+            double a=0;
+            for (double y0 = y - Size; y0<y+Size; ++y)
+            {
+                for (double x0 = x - Size; x0 < x + Size; ++x0)
+                {
+                    double r =  Math.Cos(a);
+                    double g =  Math.Sin(a);
+                    image.SetPixel((int)r, (int)g, cColor);
+                    a += Math.PI;
+
+                }
+            }
+            
+        }
+    }
 }

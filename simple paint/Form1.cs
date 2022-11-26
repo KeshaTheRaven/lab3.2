@@ -216,5 +216,10 @@ namespace simple_paint
             if (ofd.ShowDialog() == DialogResult.OK)
                 pictureBox1.Image = Image.FromFile(ofd.FileName);
         }
+
+        private void octoFlower_Click(object sender, EventArgs e)
+        {
+            _selectedBrush = new Octoflower (SelectedColor, SelectedSize);
+        }
     }
 }
