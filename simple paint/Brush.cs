@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace simple_paint
 {
@@ -128,9 +130,9 @@ namespace simple_paint
             }
         }
     }
-    internal class Octoflower : Brush
+    internal class CrocodileStramp : Brush
     {
-        public Octoflower(Color cColor, int size) : base(cColor, size)
+        public CrocodileStramp(Color cColor, int size) : base(cColor, size)
         {
 
         }
@@ -138,20 +140,68 @@ namespace simple_paint
         public override void Draw(Bitmap image, int x, int y)
         {
             //r = 2*sin( 5*p)
-                      
-            double a=0;
-            for (double y0 = y - Size; y0<y+Size; ++y)
+
+            int n = 5;               // число вершин
+            double R = Size, r = Size*2;   // радиусы
+            double alpha = 0;        // поворот
+            double a = alpha, da = Math.PI / n, l;
+            for (int k = 0; k < 2 * n + 1; k++)
             {
-                for (double x0 = x - Size; x0 < x + Size; ++x0)
+                for (int y0 = y - Size; y0 < y + Size; ++y0)
                 {
-                    double r =  Math.Cos(a);
-                    double g =  Math.Sin(a);
-                    image.SetPixel((int)r, (int)g, cColor);
-                    a += Math.PI;
+                    for (int x0 = x - Size; x0 < x + Size; ++x0)
+                    {
+                        l = k % 2 == 0 ? r : R;
+                        int T = (int)(x0 + l * Math.Cos(a));
+                        int Y= (int)(y0 + l * Math.Sin(a));
+                        a += da;
+
+                        image.SetPixel(T, Y, cColor);
+                    }
+                }
+            }
+
+            
+        }
+    }
+    internal class octoFlower : Brush
+    {
+        public octoFlower(Color cColor, int size) : base(cColor, size)
+        {
+
+        }
+
+        public override void Draw(Bitmap image, int x, int y)
+        {
+            //r = 2*sin( 5*p)
+
+            int n = 6;               // число вершин
+            double R = Size, r = Size * 2;   // радиусы
+            double alpha = 0;        // поворот
+
+
+
+            PointF[] points = new PointF[2 * n + 1];
+            double a = alpha, da = Math.PI / n, l;
+            for (int k = 0; k < 2 * n + 1; k++)
+            {
+                for (int y0 = y - Size; y0 < y + Size; ++y0)
+                {
+                    for (int x0 = x - Size; x0 < x + Size; ++x0)
+                    {
+
+                        l = k % 2 == 0 ? r : R;
+                        int X = (int)(Math.Cos(x)/Size);
+                        int Y = (int)(Math.Sin(y) / Size);
+                        a += da;
+
+                        image.SetPixel(X, Y, cColor);
+                    }
 
                 }
             }
-            
+
+
         }
     }
 }

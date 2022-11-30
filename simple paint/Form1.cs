@@ -219,7 +219,15 @@ namespace simple_paint
 
         private void octoFlower_Click(object sender, EventArgs e)
         {
-            _selectedBrush = new Octoflower (SelectedColor, SelectedSize);
+            _selectedBrush = new CrocodileStramp (SelectedColor, SelectedSize);
+        }
+
+        private void octoflower_Click_1(object sender, EventArgs e)
+        {
+
+            _selectedBrush = new octoFlower(SelectedColor, SelectedSize);
+
+
         }
     }
 }
