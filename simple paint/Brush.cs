@@ -177,53 +177,98 @@ namespace simple_paint
             //r = 2*sin( 5*p)
             int a = 2 * Size;
             double R = 0;
+            double alpha = 0;
+            double beta = 0;
             int x0 = x;
             int y0 = y;
-            double t = 0.05;
+            double t = 0.115;
             int y2 = 0;
-            int x1= 0;
+            
             int x2 = 0; 
             int y1 = 0;
             double V=0;
             double C = 0;
             double D = 0;
-            double b = 0;
+            float b = 0;
 
             for (double n = 0; n< 2 * Math.PI; n+=t)
             {
+
                 R = a* Math.Sin(5*n);
-                y0= (int)(y + Math.Sin(n)*R);
-                x0= (int)(x + Math.Cos(n)*R);
+                alpha = y + Math.Sin(n)*R;
+                beta = x + Math.Cos(n)*R;
+                y0 = (int)alpha;
+                x0 = (int)beta;
                 image.SetPixel(x0, y0, cColor);
-               
-                
-                if (n > 0)
+                y2 = y0;
+                x2 = y0;
+
+                for (int x1 = x2; x1 < x0; x1++)
                 {
-                   
-                        double e = x0 - x2;
-                        double r = y0 - y2;
-                        Math.Pow(e, 2);
-                        Math.Pow(r, 2);
-                        C = Math.Sqrt(e + r);
-                        D = e / r;
-                        b=(x2*y0+ y2*x1)/(x2-x0);
-
-                    //while (x2 < x0)
-                    //{
-                    //    x2 = y0 - x2 + y2;
-                    //    y2= y0 - x2 + y2;
-                    //    image.SetPixel(x2, y2, cColor);
-                    //    image.SetPixel(x2, x - y + x0, cColor);
-                    //}
-                    x1= (int)(D *x0+ b);
-                    y1= (int)(D *y0+ b);
-
-                    image.SetPixel(x1, y2, cColor);
-
+                    y1 = ((x2 - x0) / (x2 - x0)) * (y2 - y0) + y2;
+                    image.SetPixel(x1, y1, cColor);
                 }
-                y0 = y2;
-                x0 = x2;
-                
+
+                //while (x1 < x0 & y1 < y0)
+                //{
+                //    x1 = (y0 - y2) * (x2 - x0) / (y2 - y0) + x0;
+                //    y1 = (x0 - x2) + (y2 - x0) / (x2 - x0) + y0;
+                //    image.SetPixel(x1, y0, cColor);
+
+                //}
+
+
+
+                //if (n>1) {
+                //    for (int i = 0; i <  Size; i++)
+                //    {
+                //        double e = alpha - x2;
+                //        double r = y0 - y2;
+                //        Math.Pow(e, 2);
+                //        Math.Pow(r, 2);
+                //        C = Math.Sqrt(e + r);
+                //        D = e / r;
+                //        b = (x2 * y0 + y2 * x0) / (x2 - x0);
+                //        V = x1 * D + b;
+                //        y = (int)V;
+
+                //        image.SetPixel(x1, y1, cColor);
+                //        x1 = (int)((V - b) / D);
+                //    } }
+
+                //double e = x0 - x2;
+                //double r = y0 - y2;
+                //Math.Pow(e, 2);
+                //Math.Pow(r, 2);
+                //C = Math.Sqrt(e + r);
+                //D = e / r;
+                //b = (x2 * y0 + y2 * x1) / (x2 - x0);
+
+
+
+                //for (int i = y2; i < y0; i++)
+                //{
+
+                //    y1 = (int)(x1 * C + b);
+                //    x1 = (int)((y1 - b) / C);
+                //    image.SetPixel(x2, y1, cColor);
+
+                //    e = x0 - x2;
+                //    r = y0 - y2;
+                //    Math.Pow(e, 2);
+                //    Math.Pow(r, 2);
+                //    C = Math.Sqrt(e + r);
+                //    D = e / r;
+                //    b = (x2 * y0 + y2 * x2) / (x2 - x0);
+
+
+
+
+                //}
+
+
+
+
 
             }
 
