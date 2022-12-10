@@ -25,17 +25,17 @@ namespace simple_paint
             this.cColor = cColor;
             Size = size;
         }
-        public abstract void Draw (Bitmap image, int x, int y);
-        
+        public abstract void Draw(Bitmap image, int x, int y);
+
     }
     class QuadBrush : Brush
     {
-        public QuadBrush (Color cColor, int size) : base(cColor, size) { }
+        public QuadBrush(Color cColor, int size) : base(cColor, size) { }
         public override void Draw(Bitmap image, int x, int y)
         {
-            for (int y0 = y-Size; y0 < y+Size; ++y0)
+            for (int y0 = y - Size; y0 < y + Size; ++y0)
             {
-                for (int x0 = x-Size; x0 < x+Size; ++x0)
+                for (int x0 = x - Size; x0 < x + Size; ++x0)
                 {
                     image.SetPixel(x0, y0, cColor);
                 }
@@ -43,7 +43,7 @@ namespace simple_paint
 
         }
 
-        
+
     }
     internal class Circle : Brush
     {
@@ -142,27 +142,19 @@ namespace simple_paint
         {
             //r = 2*sin( 5*p)
 
-            int n = 5;               // число вершин
-            double R = Size, r = Size*2;   // радиусы
-            double alpha = 0;        // поворот
-            double a = alpha, da = Math.PI / n, l;
-            for (int k = 0; k < 2 * n + 1; k++)
-            {
-                for (int y0 = y - Size; y0 < y + Size; ++y0)
-                {
-                    for (int x0 = x - Size; x0 < x + Size; ++x0)
-                    {
-                        l = k % 2 == 0 ? r : R;
-                        int T = (int)(x0 + l * Math.Cos(a));
-                        int Y= (int)(y0 + l * Math.Sin(a));
-                        a += da;
 
-                        image.SetPixel(T, Y, cColor);
-                    }
+
+
+            for (int y0 = y - Size; y0 < y + Size; ++y0)
+            {
+                for (int x0 = x - Size; x0 < x + Size; ++x0)
+                {
+                    image.SetPixel(x0, y - x + x0, cColor);
                 }
             }
 
-            
+
+
         }
     }
     internal class octoFlower : Brush
@@ -181,33 +173,48 @@ namespace simple_paint
             double beta = 0;
             int x0 = x;
             int y0 = y;
-            double t = 0.115;
-            int y2 = 0;
-            
-            int x2 = 0; 
+            double t = 0.15;
+
+    
+            int x1 = 0;
             int y1 = 0;
-            double V=0;
+            double V = 0;
             double C = 0;
             double D = 0;
             float b = 0;
 
-            for (double n = 0; n< 2 * Math.PI; n+=t)
+            for (double n = 0; n < 2 * Math.PI; n += t)
             {
 
-                R = a* Math.Sin(5*n);
-                alpha = y + Math.Sin(n)*R;
-                beta = x + Math.Cos(n)*R;
+                R = a * Math.Sin(8 * n);
+                alpha = y + Math.Sin(n) * R;
+                beta = x + Math.Cos(n) * R;
                 y0 = (int)alpha;
                 x0 = (int)beta;
                 image.SetPixel(x0, y0, cColor);
-                y2 = y0;
-                x2 = y0;
+                y1 = y0;
+                x1 = x0;
 
-                for (int x1 = x2; x1 < x0; x1++)
+
+                if (x1<x0)
                 {
-                    y1 = ((x2 - x0) / (x2 - x0)) * (y2 - y0) + y2;
-                    image.SetPixel(x1, y1, cColor);
+                    for(int x2 = x1; x2 < x0; x2++)
+                    image.SetPixel(x0, y1-x0+x1, cColor);
                 }
+
+               
+
+
+
+
+
+
+                //for (int x2 = x1; x2 < x0; x2++)
+                //{
+                //    y2 = ((x1 - x0) + (y1 - x0)) / (y1 - y0) + x0;
+                //    image.SetPixel(x2, y2, cColor);
+
+                //}
 
                 //while (x1 < x0 & y1 < y0)
                 //{
@@ -270,9 +277,11 @@ namespace simple_paint
 
 
 
+
+
+
             }
-
-
         }
     }
+
 }

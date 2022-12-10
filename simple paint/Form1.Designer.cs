@@ -37,6 +37,7 @@
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.оПрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsPanel = new System.Windows.Forms.Panel();
+            this.octoflower = new System.Windows.Forms.Button();
             this.Crocodile = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -55,7 +56,6 @@
             this.kvadr = new System.Windows.Forms.Button();
             this.drawPanel = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.octoflower = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.toolsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -91,28 +91,28 @@
             // создатьToolStripMenuItem
             // 
             this.создатьToolStripMenuItem.Name = "создатьToolStripMenuItem";
-            this.создатьToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.создатьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.создатьToolStripMenuItem.Text = "Создать";
             this.создатьToolStripMenuItem.Click += new System.EventHandler(this.создатьToolStripMenuItem_Click);
             // 
             // сохранитьToolStripMenuItem
             // 
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
-            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.сохранитьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.сохранитьToolStripMenuItem.Text = "Сохранить";
             this.сохранитьToolStripMenuItem.Click += new System.EventHandler(this.сохранитьToolStripMenuItem_Click);
             // 
             // открытьToolStripMenuItem
             // 
             this.открытьToolStripMenuItem.Name = "открытьToolStripMenuItem";
-            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.открытьToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.открытьToolStripMenuItem.Text = "Открыть";
             this.открытьToolStripMenuItem.Click += new System.EventHandler(this.открытьToolStripMenuItem_Click);
             // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
-            this.выходToolStripMenuItem.Size = new System.Drawing.Size(133, 22);
+            this.выходToolStripMenuItem.Size = new System.Drawing.Size(132, 22);
             this.выходToolStripMenuItem.Text = "Выход";
             // 
             // справкаToolStripMenuItem
@@ -150,6 +150,17 @@
             this.toolsPanel.Size = new System.Drawing.Size(174, 583);
             this.toolsPanel.TabIndex = 1;
             // 
+            // octoflower
+            // 
+            this.octoflower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.octoflower.Location = new System.Drawing.Point(84, 448);
+            this.octoflower.Name = "octoflower";
+            this.octoflower.Size = new System.Drawing.Size(65, 31);
+            this.octoflower.TabIndex = 8;
+            this.octoflower.Text = "Листик";
+            this.octoflower.UseVisualStyleBackColor = true;
+            this.octoflower.Click += new System.EventHandler(this.octoflower_Click_1);
+            // 
             // Crocodile
             // 
             this.Crocodile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -157,7 +168,7 @@
             this.Crocodile.Name = "Crocodile";
             this.Crocodile.Size = new System.Drawing.Size(65, 31);
             this.Crocodile.TabIndex = 2;
-            this.Crocodile.Text = "Крокодил";
+            this.Crocodile.Text = "Прямая";
             this.Crocodile.UseVisualStyleBackColor = true;
             this.Crocodile.Click += new System.EventHandler(this.octoFlower_Click);
             // 
@@ -328,7 +339,8 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, -12);
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(626, 583);
             this.pictureBox1.TabIndex = 1;
@@ -337,17 +349,6 @@
             this.pictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseDown);
             this.pictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_MouseMove);
             this.pictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.pictureBox1_Mouseup);
-            // 
-            // octoflower
-            // 
-            this.octoflower.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.octoflower.Location = new System.Drawing.Point(84, 448);
-            this.octoflower.Name = "octoflower";
-            this.octoflower.Size = new System.Drawing.Size(65, 31);
-            this.octoflower.TabIndex = 8;
-            this.octoflower.Text = "Листик";
-            this.octoflower.UseVisualStyleBackColor = true;
-            this.octoflower.Click += new System.EventHandler(this.octoflower_Click_1);
             // 
             // Form1
             // 

@@ -219,7 +219,20 @@ namespace simple_paint
 
         private void octoFlower_Click(object sender, EventArgs e)
         {
-            _selectedBrush = new CrocodileStramp (SelectedColor, SelectedSize);
+            _selectedBrush.cColor = Color.Red;
+            _selectedBrush.Size = 5;
+            
+            _selectedBrush.Draw(pictureBox1.Image as Bitmap, 20, 20);
+            
+            _selectedBrush.Draw(pictureBox1.Image as Bitmap, 100, 400); 
+            _selectedBrush.Draw(pictureBox1.Image as Bitmap, 300, 450); 
+            pictureBox1.Refresh();
+            LineDrawer.DrawLine(pictureBox1.Image as Bitmap, 20, 20, 100, 400, Color.Red);
+
+            LineDrawer.DrawLine(pictureBox1.Image as Bitmap, 300, 450, 100, 400, Color.Red);
+            pictureBox1.Refresh();
+
+            //pictureBox1.CreateGraphics().DrawLine(new Pen(Color.Red), 20, 20, 100, 400);
         }
 
         private void octoflower_Click_1(object sender, EventArgs e)
