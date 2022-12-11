@@ -220,7 +220,7 @@ namespace simple_paint
         private void octoFlower_Click(object sender, EventArgs e)
         {
             _selectedBrush.cColor = Color.Red;
-            _selectedBrush.Size = 5;
+            _selectedBrush.Size = 6;
             
             _selectedBrush.Draw(pictureBox1.Image as Bitmap, 20, 20);
             

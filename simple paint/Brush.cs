@@ -181,19 +181,23 @@ namespace simple_paint
             for (double n = 0; n < 2 * Math.PI; n += t)
             {
 
-                R = a * Math.Sin(8 * n);
+                R = a * Math.Sin(4 * n);
                 alpha = y + Math.Sin(n) * R;
                 beta = x + Math.Cos(n) * R;
                 y0 = (int)alpha;
                 x0 = (int)beta;
+
 
                 image.SetPixel(x0, y0, cColor);
                 if (n > 0 & n < 2 * Math.PI)
                 {
                     LineDrawer.DrawLine(image as Bitmap, x1, y1, x0, y0, cColor);
                 }
-                x1 = x0;
-                y1 = y0;
+                if (x0 != x1 && y0 != y1)
+                {
+                    x1 = x0;
+                    y1 = y0;
+                }
             }
         }
     }
