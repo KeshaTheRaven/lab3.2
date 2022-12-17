@@ -11,10 +11,12 @@ namespace simple_paint
         int _y;
         bool _mouseClicked = false;
 
+      
         Color SelectedColor
         {
-            get { return sC.BackColor; } // возвращает знаечение панели со цветом
+            get { return Color.Red; } // возвращает знаечение панели со цветом
         }
+        
 
         int SelectedSize
         {
@@ -78,6 +80,7 @@ namespace simple_paint
 
         private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
         {
+            sC.BackColor = Color.Red;
             Bitmap pixelData = (Bitmap)pictureBox2.Image;               // устанавливает цвет панели
             Color SelectedColor = pixelData.GetPixel(e.X, e.Y);
             redBox.Text = SelectedColor.R.ToString();
@@ -228,8 +231,15 @@ namespace simple_paint
             _selectedBrush.Draw(pictureBox1.Image as Bitmap, 300, 450); 
             pictureBox1.Refresh();
             LineDrawer.DrawLine(pictureBox1.Image as Bitmap, 20, 20, 100, 400, Color.Red);
+             
 
             LineDrawer.DrawLine(pictureBox1.Image as Bitmap, 300, 450, 100, 400, Color.Red);
+
+            LineDrawer.DrawLine(pictureBox1.Image as Bitmap, 300, 450, 350, 400 , Color.Red);
+
+            LineDrawer.DrawLine(pictureBox1.Image as Bitmap, 350, 400, 300, 140, Color.Red);
+            LineDrawer.DrawLine(pictureBox1.Image as Bitmap, 300, 140, 100 , 140, Color.Red);
+            LineDrawer.DrawLine(pictureBox1.Image as Bitmap, 100, 140, 20, 20, Color.Red);
             pictureBox1.Refresh();
 
             //pictureBox1.CreateGraphics().DrawLine(new Pen(Color.Red), 20, 20, 100, 400);
@@ -237,7 +247,7 @@ namespace simple_paint
 
         private void octoflower_Click_1(object sender, EventArgs e)
         {
-
+           
             _selectedBrush = new octoFlower(SelectedColor, SelectedSize);
 
 

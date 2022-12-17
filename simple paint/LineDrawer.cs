@@ -14,48 +14,50 @@ namespace simple_paint
             double k = 0;
             int y = 0;
             int x;
-            k = 1.0 * (y2 - y1) / (x2 - x1);
-            if (x1>x2)
+            if (x1 > x2)
             {
                 (x1, x2) = (x2, x1);
-                (y1, y2) = (y2, y1);                
+                (y1, y2) = (y2, y1);
             }
             if (x1 == x2)
-            {   while (y < y2)
-                    {
-                    y = y1 - x1 + x2;
-                    bitmap.SetPixel(x1, y, cColor);
-                    }
-                
-            }
-            
-            for (x = x1; x <= x2 - x1; x++)
             {
-                y = (int)Math.Round((k * x + y1));
-                bitmap.SetPixel(x1 + x, y, cColor);
-            }
-            if (y1 == y2)
-            {
-                while (x < x2)
+                while (y1 <= y2)
                 {
-                    x = x1 - y1 + y2;
-                    bitmap.SetPixel(x, y1, cColor);
+                    y1 += 1;
+                    bitmap.SetPixel(x1, y1, cColor);
+                }
+
+            }
+            else if (y1 == y2)
+            {
+                while (x1 <= x2)
+                {
+                    x1++;
+                    bitmap.SetPixel(x1, y1, cColor);
                 }
             }
-
-
-            double k2 = 0;
-            
-            k2 = 1.0 * (x2 - x1) / (y2 - y1);
-            if (y1 < y2)
+            else
             {
-                
-                int lastX = x1;
-
-                for (y = y1; y <= y2 - y1; y++)
+                k = 1.0 * (y2 - y1) / (x2 - x1);
+                for (x = 0; x <= x2 - x1; x++)
                 {
-                    x = (int)Math.Round((k2 * y + x1));
-                    bitmap.SetPixel(x, y1 + y, cColor);
+                    y = (int)Math.Round((k * x + y1));
+                    bitmap.SetPixel(x1 + x, y, cColor);
+                }
+
+                double k2 = 0;
+
+                k2 = 1.0 * (x2 - x1) / (y2 - y1);
+                if (y1 < y2)
+                {
+
+                    int lastX = x1;
+
+                    for (y = 0; y <= y2 - y1; y++)
+                    {
+                        x = (int)Math.Round((k2 * y + x1));
+                        bitmap.SetPixel(x, y1 + y, cColor);
+                    }
                 }
             }
         }

@@ -173,7 +173,7 @@ namespace simple_paint
             double beta = 0;
             int x0 = x;
             int y0 = y;
-            double t = 0.15;
+            double t = 0.5;
             int x1 = 0;
             int y1 = 0;
 
@@ -181,7 +181,7 @@ namespace simple_paint
             for (double n = 0; n < 2 * Math.PI; n += t)
             {
 
-                R = a * Math.Sin(8 * n);
+                R = a * Math.Sin(3 * n);
                 alpha = y + Math.Sin(n) * R;
                 beta = x + Math.Cos(n) * R;
                 y0 = (int)alpha;
