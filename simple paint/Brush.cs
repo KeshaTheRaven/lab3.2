@@ -187,13 +187,17 @@ namespace simple_paint
                 y0 = (int)alpha;
                 x0 = (int)beta;
 
+
                 image.SetPixel(x0, y0, cColor);
                 if (n > 0 & n < 2 * Math.PI)
                 {
                     LineDrawer.DrawLine(image as Bitmap, x1, y1, x0, y0, cColor);
                 }
-                x1 = x0;
-                y1 = y0;
+                if (x0 != x1 && y0 != y1)
+                {
+                    x1 = x0;
+                    y1 = y0;
+                }
             }
         }
     }
