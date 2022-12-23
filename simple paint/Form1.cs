@@ -80,13 +80,18 @@ namespace simple_paint
 
         private void pictureBox2_MouseDown(object sender, MouseEventArgs e)
         {
-            sC.BackColor = Color.Red;
-            Bitmap pixelData = (Bitmap)pictureBox2.Image;               // устанавливает цвет панели
-            Color SelectedColor = pixelData.GetPixel(e.X, e.Y);
-            redBox.Text = SelectedColor.R.ToString();
-            greenBox.Text = SelectedColor.G.ToString();
-            blueBox.Text = SelectedColor.B.ToString();
-            sC.BackColor = SelectedColor;
+            try
+            {
+                sC.BackColor = Color.Red;
+                Bitmap pixelData = (Bitmap)pictureBox2.Image;               // устанавливает цвет панели
+                Color SelectedColor = pixelData.GetPixel(e.X, e.Y);
+                redBox.Text = SelectedColor.R.ToString();
+                greenBox.Text = SelectedColor.G.ToString();
+                blueBox.Text = SelectedColor.B.ToString();
+                sC.BackColor = SelectedColor;
+                _selectedBrush.cColor = sC.BackColor;
+            }
+            catch (Exception) { }
 
         }
         private void kvadr_Click(object sender, EventArgs e)

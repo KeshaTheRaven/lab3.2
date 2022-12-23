@@ -21,6 +21,11 @@ namespace simple_paint
             }
             if (x1 == x2)
             {
+                if (y1 > y2)
+                {
+                    (x1, x2) = (x2, x1);
+                    (y1, y2) = (y2, y1);
+                }
                 while (y1 <= y2)
                 {
                     y1 += 1;
@@ -48,6 +53,11 @@ namespace simple_paint
                 double k2 = 0;
 
                 k2 = 1.0 * (x2 - x1) / (y2 - y1);
+                if (y1 > y2)
+                {
+                    (x1, x2) = (x2, x1);
+                    (y1, y2) = (y2, y1);
+                }
                 if (y1 < y2)
                 {
 
